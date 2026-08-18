@@ -18,8 +18,6 @@ import android.view.animation.DecelerateInterpolator;
 
 import io.virtualapp.R;
 
-import static android.graphics.Canvas.ALL_SAVE_FLAG;
-
 public class LauncherIconView extends AppCompatImageView implements ShimmerViewBase {
     private static final int SMOOTH_ANIM_THRESHOLD = 5;
 
@@ -116,7 +114,8 @@ public class LauncherIconView extends AppCompatImageView implements ShimmerViewB
             mShimmerViewHelper.onDraw();
         }
         super.onDraw(canvas);
-        int sc = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, ALL_SAVE_FLAG);
+        // 0x1F = Canvas.ALL_SAVE_FLAG（API 28 已移除该常量，用字面值）
+        int sc = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, 0x1F);
 
         initParams();
 
