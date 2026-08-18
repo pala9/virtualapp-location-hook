@@ -12,12 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 8
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '8'
-
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
 
@@ -32,6 +26,13 @@ jobs:
           unzip -q android-ndk-r14b-linux-x86_64.zip
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           echo "ndk.dir=$GITHUB_WORKSPACE/android-ndk-r14b" >> local.properties
+
+      # sdkmanager 需要 JDK 17+，构建需 JDK 8，故 SDK 装完后才切换 JDK
+      - name: Set up JDK 8 for build
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
 
       - name: Grant execute permission
         run: chmod +x gradlew
