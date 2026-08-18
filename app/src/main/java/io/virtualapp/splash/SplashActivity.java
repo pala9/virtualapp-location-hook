@@ -10,7 +10,7 @@ import io.virtualapp.VCommends;
 import io.virtualapp.abs.ui.VActivity;
 import io.virtualapp.abs.ui.VUiKit;
 import io.virtualapp.home.HomeActivity;
-import jonathanfinerty.once.Once;
+import io.virtualapp.VOnce;
 
 public class SplashActivity extends VActivity {
 
@@ -18,7 +18,7 @@ public class SplashActivity extends VActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         @SuppressWarnings("unused")
-        boolean enterGuide = !Once.beenDone(Once.THIS_APP_INSTALL, VCommends.TAG_NEW_VERSION);
+        boolean enterGuide = !VOnce.beenDone(VOnce.THIS_APP_INSTALL, VCommends.TAG_NEW_VERSION);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);

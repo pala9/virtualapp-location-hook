@@ -11,7 +11,7 @@ import io.virtualapp.delegate.MyAppRequestListener;
 import io.virtualapp.delegate.MyComponentDelegate;
 import io.virtualapp.delegate.MyPhoneInfoDelegate;
 import io.virtualapp.delegate.MyTaskDescriptionDelegate;
-import jonathanfinerty.once.Once;
+import io.virtualapp.VOnce;
 
 /**
  * @author Lody
@@ -47,7 +47,7 @@ public class VApp extends MultiDexApplication {
 
             @Override
             public void onMainProcess() {
-                Once.initialise(VApp.this);
+                VOnce.initialise(VApp.this);
             }
 
             @Override

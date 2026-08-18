@@ -13,6 +13,7 @@ import com.lody.virtual.remote.InstalledAppInfo;
 import java.io.IOException;
 
 import io.virtualapp.VCommends;
+import io.virtualapp.VOnce;
 import io.virtualapp.abs.ui.VUiKit;
 import io.virtualapp.home.models.AppData;
 import io.virtualapp.home.models.AppInfoLite;
@@ -20,7 +21,6 @@ import io.virtualapp.home.models.MultiplePackageAppData;
 import io.virtualapp.home.models.PackageAppData;
 import io.virtualapp.home.repo.AppRepository;
 import io.virtualapp.home.repo.PackageAppDataStorage;
-import jonathanfinerty.once.Once;
 
 /**
  * @author Lody
@@ -43,13 +43,13 @@ class HomePresenterImpl implements HomeContract.HomePresenter {
     @Override
     public void start() {
         dataChanged();
-        if (!Once.beenDone(VCommends.TAG_SHOW_ADD_APP_GUIDE)) {
+        if (!VOnce.beenDone(VCommends.TAG_SHOW_ADD_APP_GUIDE)) {
             mView.showGuide();
-            Once.markDone(VCommends.TAG_SHOW_ADD_APP_GUIDE);
+            VOnce.markDone(VCommends.TAG_SHOW_ADD_APP_GUIDE);
         }
-        if (!Once.beenDone(VCommends.TAG_ASK_INSTALL_GMS) && GmsSupport.isOutsideGoogleFrameworkExist()) {
+        if (!VOnce.beenDone(VCommends.TAG_ASK_INSTALL_GMS) && GmsSupport.isOutsideGoogleFrameworkExist()) {
             mView.askInstallGms();
-            Once.markDone(VCommends.TAG_ASK_INSTALL_GMS);
+            VOnce.markDone(VCommends.TAG_ASK_INSTALL_GMS);
         }
     }
 
