@@ -53,7 +53,5 @@ dependencies {
     //Promise Support
     implementation 'org.jdeferred:jdeferred-android-aar:1.2.4'
     // ThirdParty
-    implementation 'com.jonathanfinerty.once:once:1.0.3'
-    implementation 'com.flurry.android:analytics:6.9.2'
-    implementation 'com.kyleduo.switchbutton:library:1.4.6'
+    implementation 'com.github.jonfinerty:Once:1.0.3'
 }
