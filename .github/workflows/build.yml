@@ -27,6 +27,12 @@ jobs:
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           echo "ndk.dir=$GITHUB_WORKSPACE/android-ndk-r17c" >> local.properties
 
+      # 老 NDK 工具链依赖 libtinfo.so.5，ubuntu 24.04 只有 libtinfo.so.6
+      - name: Fix libtinfo for old NDK
+        run: |
+          sudo ln -sf /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5 || true
+          sudo ldconfig || true
+
       # sdkmanager 需要 JDK 17+，构建需 JDK 8，故 SDK 装完后才切换 JDK
       - name: Set up JDK 8 for build
         uses: actions/setup-java@v4
