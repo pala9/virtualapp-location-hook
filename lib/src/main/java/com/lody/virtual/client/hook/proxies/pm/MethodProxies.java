@@ -449,8 +449,10 @@ class MethodProxies {
             if (_hostResult != null) {
                 List<ResolveInfo> hostResult;
                 if (slice) {
-                    hostResult = ParceledListSlice.getList.call(_hostResult);
+                    //noinspection unchecked
+                    hostResult = (List<ResolveInfo>) ParceledListSlice.getList.call(_hostResult);
                 } else {
+                    //noinspection unchecked
                     hostResult = (List) _hostResult;
                 }
                 if (hostResult != null) {
@@ -536,8 +538,10 @@ class MethodProxies {
             if (_hostResult != null) {
                 List<ResolveInfo> hostResult;
                 if (slice) {
-                    hostResult = ParceledListSlice.getList.call(_hostResult);
+                    //noinspection unchecked
+                    hostResult = (List<ResolveInfo>) ParceledListSlice.getList.call(_hostResult);
                 } else {
+                    //noinspection unchecked
                     hostResult = (List) _hostResult;
                 }
                 if (hostResult != null) {
@@ -1110,8 +1114,10 @@ class MethodProxies {
             Object _hostResult = method.invoke(who, args);
             List<ResolveInfo> hostResult;
             if (slice) {
-                hostResult = ParceledListSlice.getList.call(_hostResult);
+                //noinspection unchecked
+                hostResult = (List<ResolveInfo>) ParceledListSlice.getList.call(_hostResult);
             } else {
+                //noinspection unchecked
                 hostResult = (List) _hostResult;
             }
             if (hostResult != null) {
@@ -1218,8 +1224,10 @@ class MethodProxies {
             Object _hostResult = method.invoke(who, args);
             List<ResolveInfo> hostResult;
             if (slice) {
-                hostResult = ParceledListSlice.getList.call(_hostResult);
+                //noinspection unchecked
+                hostResult = (List<ResolveInfo>) ParceledListSlice.getList.call(_hostResult);
             } else {
+                //noinspection unchecked
                 hostResult = (List) _hostResult;
             }
             if (hostResult != null) {

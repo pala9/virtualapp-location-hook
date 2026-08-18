@@ -90,8 +90,10 @@ public class ActivityManagerStub extends MethodInvocationProxy<MethodInvocationS
                     //noinspection unchecked
                     List<ActivityManager.RecentTaskInfo> infos;
                     if (ParceledListSliceCompat.isReturnParceledListSlice(method)) {
-                        infos = ParceledListSlice.getList.call(_infos);
+                        //noinspection unchecked
+                        infos = (List<ActivityManager.RecentTaskInfo>) ParceledListSlice.getList.call(_infos);
                     } else {
+                        //noinspection unchecked
                         infos = (List) _infos;
                     }
                     for (ActivityManager.RecentTaskInfo info : infos) {
