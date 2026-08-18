@@ -20,12 +20,12 @@ jobs:
           yes | sdkmanager --licenses > /dev/null 2>&1 || true
           sdkmanager "platforms;android-28" "build-tools;30.0.2" "platform-tools"
 
-      - name: Install NDK r21b
+      - name: Install NDK r17c
         run: |
-          wget -q https://dl.google.com/android/repository/android-ndk-r21b-linux-x86_64.zip
-          unzip -q android-ndk-r21b-linux-x86_64.zip
+          wget -q https://dl.google.com/android/repository/android-ndk-r17c-linux-x86_64.zip
+          unzip -q android-ndk-r17c-linux-x86_64.zip
           echo "sdk.dir=$ANDROID_HOME" > local.properties
-          echo "ndk.dir=$GITHUB_WORKSPACE/android-ndk-r21b" >> local.properties
+          echo "ndk.dir=$GITHUB_WORKSPACE/android-ndk-r17c" >> local.properties
 
       # sdkmanager 需要 JDK 17+，构建需 JDK 8，故 SDK 装完后才切换 JDK
       - name: Set up JDK 8 for build
